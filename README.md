@@ -2,7 +2,7 @@
 
 ## Tecnologias Usadas
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height="40" width="40"/>  `PostgreSQL`
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" height="40" width="40"/>`MySQL`
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" height="40" width="40"/>  `Spring Boot 3`
 <img src="https://www.vectorlogo.zone/logos/hibernate/hibernate-icon.svg" width="40" height="40">  `Hibernate`
 <img src="https://www.svgrepo.com/show/374111/swagger.svg" width="50" height="50">  `Swagger`
@@ -15,8 +15,8 @@
           
 ## Instruções de Instalação
 
-1. Clone o repositório: `git clone https://github.com/Fernand0-jf/Crud_Rest_Api.git`
-2. Configure o banco de dados PostgreSQL e atualize as configurações no arquivo `application.properties`.
+1. Clone o repositório: `git clone https://github.com/Fernand0-jf/API-GMAIL`
+2. Configure o banco de dados MySQL e atualize as configurações no arquivo `application.properties`.
 3. Instale as dependências: `mvn install` ou `./gradlew build`
 4. Execute a aplicação: `mvn spring-boot:run` ou `./gradlew bootRun`
 
@@ -38,11 +38,10 @@ Acesse a documentação da API utilizando Swagger:
 
 ### Rotas da API
 
-- `GET /api/funcionarios`: Obter todos os funcionarios
-- `GET /api/funcionarios/{id}`: Obter um funcionario específico
-- `POST /api/funcionarios`: Criar um novo funcionario
-- `PUT /api/funcionarios/{id}`: Atualizar um funcionario existente
-- `DELETE /api/funcionarios/{id}`: Excluir um funcionario
+- `POST /main/send/{email}`: envia um unico email
+- `POST /main/funcionarios/{groupId}`: envia um corpo de email para todos os usuarios cadastrados no banco de dados com o mesmo groupId
+- `POST /userMain/save`: Salva o email do usuario no banco de dados
+- `DELETE /userMain/delete/{id}`: Exclui o email do usuario do banco de dados
 
 ### Exemplos
 
