@@ -39,85 +39,78 @@ Acesse a documentação da API utilizando Swagger:
 ### Rotas da API
 
 - `POST /main/send/{email}`: envia um unico email
-- `POST /main/funcionarios/{groupId}`: envia um corpo de email para todos os usuarios cadastrados no banco de dados com o mesmo groupId
+- `POST /main/send/id/{groupId}`: envia um corpo de email para todos os usuarios cadastrados no banco de dados com o mesmo groupId
 - `POST /userMain/save`: Salva o email do usuario no banco de dados
 - `DELETE /userMain/delete/{id}`: Exclui o email do usuario do banco de dados
 
 ### Exemplos
 
-#### Criar um Novo Usuário
+#### Envia Um Unico Email
 
 **Request:**
 ```http
-POST /api/usuarios
+POST /main/send/teste@ok.com
 Content-Type: application/json
 
 {
-  "primeiroNome": "John",
-  "ultimoNome":"Doe"
-  "email": "john@example.com"
+    "subject":"teste envio de email 1",
+    "message":"eu conseguir enviar um email"
 }
 ```
 **Resposta:**
 ```http
-{
-  "id":1
-  "primeiroNome": "John",
-  "ultimoNome":"Doe"
-  "email": "john@example.com"
-}
+
+email send
+
 ```
 
-#### Atualizar um Novo Usuário
+#### Salva Um Usuário No DB
 
 **Request:**
 ```http
-PUT /api/usuarios/1
+POST /userMain/save
 Content-Type: application/json
 
 {
-  "primeiroNome": "alan",
-  "ultimoNome":"alves"
-  "email": "john@example.com"
+    "username":"teste",
+    "groupId":1,
+    "email":"teste@ok.com"
 }
 ```
 **Resposta:**
 ```http
-{
-  "id":1
-  "primeiroNome": "alan",
-  "ultimoNome":"alves"
-  "email": "john@example.com"
-}
+
+user save
+
 ```
-#### Obter todos os Usuários
+#### Envia Email Para Todos Os Usuários Com o Mesmo GroupId
 
 **Request:**
 ```http
-GET /api/usuarios
+POST /main/send/id/1
 ```
 **Resposta:**
 ```http
 {
-  "id":1
-  "primeiroNome": "alan",
-  "ultimoNome":"alves"
-  "email": "john@example.com"
+    "subject":"2 teste envio de email",
+    "message":"eu conseguir enviar um email"
 }
 ```
 ## Deletar Usuário
 
 **Request:**
 ```http
-DELETE /api/usuarios/1
+DELETE /userMain/delete/1
 ```
 **Resposta**
 ```http
-Funcionario deletado com sucesso.
+
+user delete
+
 ```
 ## Testes Unitários
 
-Neste projeto, foi realizado um conjunto abrangente de testes unitários utilizando JUnit e Mockito. Esses testes foram elaborados para validar cada aspecto das operações CRUD (Create, Read, Update, Delete) da API RESTful.
+Neste projeto, foi realizado um conjunto abrangente de testes unitários utilizando JUnit e Mockito. Esses testes foram elaborados para validar cada aspecto da aplicação.
 
 ### JUnit e Mockito
 
@@ -138,4 +131,4 @@ Os testes unitários oferecem uma série de benefícios significativos para o de
 
 ### Conclusão
 
-Os testes unitários são uma parte essencial do processo de desenvolvimento de software. Eles garantem a robustez, confiabilidade e qualidade do código, permitindo que entreguemos produtos de alta qualidade aos nossos usuários finais. Com uma cobertura de teste completa e o uso de ferramentas poderosas como JUnit e Mockito, estou confiante na estabilidade e desempenho da API RESTFUL.
+Os testes unitários são uma parte essencial do processo de desenvolvimento de software. Eles garantem a robustez, confiabilidade e qualidade do código, permitindo que entreguemos produtos de alta qualidade aos nossos usuários finais. Com uma cobertura de teste completa e o uso de ferramentas poderosas como JUnit e Mockito.
